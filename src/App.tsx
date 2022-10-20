@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import * as C from "./App.styles"
 import Character from "./components/Character";
 import { useCharacter } from './hooks/useCharacter'
@@ -54,7 +54,7 @@ function App() {
       <C.Map>
 
         <Character x={char.x} y={char.y} side={char.side} />
-        <C.MessageController> <span className="commandMsg">Space</span> para interagir com o mapa</C.MessageController>
+       
       </C.Map>
 
     </C.Container>

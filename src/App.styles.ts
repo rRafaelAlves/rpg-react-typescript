@@ -15,22 +15,3 @@ background-image: url('/assets/map.png');
 background-size: 100%;
 background-position: left top;
 `
-
-export const MessageController = styled.div`
-width: 76px;
-height: 38px;
-position: absolute;
-background-color: transparent;
-left: 30px;
-top: 430px;
-border: 1px solid black;
-font-size: 9px;
-text-shadow: 2px 2px 2px black;
-text-align: center;
-
-.commandMsg{
-    color: red;
-    font-size: 11px;
-}
-
-`
