@@ -1,25 +1,63 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import * as C from "./App.styles"
+import Character from "./components/Character";
+import { useCharacter } from './hooks/useCharacter'
+
 
 function App() {
+
+  const char = useCharacter();
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown)
+  }, [])
+
+
+  const handleKeyDown = (e: KeyboardEvent) => {
+    console.log(e.code)
+    switch (e.code) {
+
+      case 'ArrowUp':
+      case 'KeyW':
+        char.moveUp()
+
+        break;
+
+      case 'ArrowDown':
+      case 'KeyS':
+        char.moveDown()
+
+        break;
+
+      case 'ArrowRight':
+      case 'KeyD':
+        char.moveRight()
+
+        break;
+
+      case 'ArrowLeft':
+      case 'KeyA':
+        char.moveLeft()
+
+        break;
+
+
+    }
+  }
+
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <C.Container>
+
+      <C.Map>
+
+        <Character x={char.x} y={char.y} side={char.side} />
+        <C.MessageController> <span className="commandMsg">Space</span> para interagir com o mapa</C.MessageController>
+      </C.Map>
+
+    </C.Container>
   );
 }
 
